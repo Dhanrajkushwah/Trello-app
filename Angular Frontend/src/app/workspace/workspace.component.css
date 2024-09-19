@@ -1,0 +1,118 @@
+/* Container for workspace section */
+.workspace {
+  max-width: 800px; /* Limit the width */
+  margin: 20px auto; /* Center the container */
+  padding: 20px; /* Add padding */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #ffffff; /* White background */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* Heading style */
+.workspace h1 {
+  margin-top: 0; /* Remove top margin */
+  color: #333; /* Dark color for text */
+  font-size: 28px; /* Font size */
+  font-weight: 600; /* Semi-bold text */
+}
+
+/* Paragraph style for workspace members count */
+.workspace p {
+  color: #555; /* Medium gray color */
+  font-size: 16px; /* Font size */
+  margin: 5px 0 20px; /* Margins */
+}
+
+/* Member list container */
+.member-list {
+  margin-bottom: 20px; /* Space below the member list */
+}
+
+/* Heading style for member list */
+.member-list h3 {
+  margin-bottom: 10px; /* Space below the heading */
+  color: #333; /* Dark color for text */
+  font-size: 20px; /* Font size */
+  font-weight: 600; /* Semi-bold text */
+}
+
+/* Member list items */
+.member-list ul {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+}
+
+.member-list li {
+  padding: 10px 15px; /* Padding inside list items */
+  border-bottom: 1px solid #ddd; /* Border between list items */
+  font-size: 16px; /* Font size */
+  color: #333; /* Dark color for text */
+}
+
+.member-list li:last-child {
+  border-bottom: none; /* Remove border for the last item */
+}
+
+.member-list strong {
+  color: #000; /* Black color for names */
+}
+
+.member-list small {
+  display: block; /* Display last active info on a new line */
+  color: #888; /* Light gray color */
+}
+
+/* Invite section styling */
+.invite {
+  margin-top: 20px; /* Space above the invite section */
+}
+
+.invite h3 {
+  margin-bottom: 15px; /* Space below the heading */
+  color: #333; /* Dark color for text */
+  font-size: 20px; /* Font size */
+  font-weight: 600; /* Semi-bold text */
+}
+
+.invite input[type="email"] {
+  width: calc(100% - 22px); /* Full width minus padding */
+  padding: 10px; /* Padding inside input */
+  margin-right: 10px; /* Space between input and button */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+}
+
+.invite button {
+  background-color: #0079d3; /* Trello blue color */
+  color: #fff; /* White text color */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Rounded corners */
+  padding: 10px 15px; /* Padding inside the button */
+  font-size: 16px; /* Font size */
+  font-weight: bold; /* Bold text */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition */
+  margin-right: 10px; /* Space between buttons */
+  margin-top: 10px;
+}
+
+.invite button:hover {
+  background-color: #026aa7; /* Darker blue on hover */
+}
+
+.invite p {
+  margin-top: 15px; /* Space above the paragraph */
+  font-size: 16px; /* Font size */
+}
+
+.invite p a {
+  color: #0079d3; /* Trello blue color */
+  text-decoration: none; /* Remove underline */
+}
+
+.invite p a:hover {
+  text-decoration: underline; /* Underline on hover */
+}

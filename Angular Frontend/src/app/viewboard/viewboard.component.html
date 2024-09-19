@@ -1,0 +1,43 @@
+<div *ngIf="board" class="board-container">
+    <div class="example-boundary">
+      <div class="example-box" cdkDragBoundary=".example-boundary" cdkDrag>
+        <div class="board-header">
+          <h2>{{ board.title }}</h2>
+          <p>Created on: {{ board.createdAt | date: 'short' }}</p>
+        </div>
+  
+        <!-- Drag-and-drop container for lists -->
+        <div cdkDropListGroup class="lists-container">
+          <div
+            *ngFor="let list of board.lists; let i = index"
+            class="list-container"
+            cdkDropList
+            [cdkDropListData]="list.tasks"
+            (cdkDropListDropped)="dropList($event, i)"
+          >
+            <h3>{{ list.title }}</h3>
+  
+            <!-- Drag-and-drop container for tasks -->
+            <div
+              
+              class="task-container"
+              cdkDrag
+              [cdkDragData]="cards"
+            >
+             
+            </div>
+          </div>
+  
+          <!-- Button to add a new list -->
+          <div>
+            <button class="new-list-btn" routerLink="/list/:1">Add List</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="!board">
+    <p>Loading board details...</p>
+  </div>
+  

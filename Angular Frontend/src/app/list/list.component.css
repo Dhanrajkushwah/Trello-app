@@ -1,0 +1,156 @@
+/* Overall container for the lists and create list form */
+.list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  cursor: move;
+}
+
+/* Form styling to align it on the right side */
+.list-form {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.list-form input {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 70%; /* Takes up more space on smaller screens */
+}
+
+.list-form button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.list-form button:hover {
+  background-color: #218838;
+}
+
+/* Styling for the lists section */
+.lists-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between lists */
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.list {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  min-width: 220px;
+  max-width: 100%;
+}
+
+.list h3 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.no-lists {
+  font-style: italic;
+  color: #888;
+}
+
+/* Add a background color when dragging an element */
+.cdk-drag-preview {
+  background-color: #e3f2fd; /* Light blue */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: move;
+}
+
+/* While dragging, the original element becomes semi-transparent */
+.cdk-drag-placeholder {
+  opacity: 0.5;
+  cursor: move;
+}
+
+/* Style for list cards */
+.card-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card {
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Responsive layout for tablet, laptops, and desktops */
+@media (min-width: 768px) {
+  .list-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .list-form {
+    flex: 1;
+    text-align: right;
+    margin-top: 0;
+  }
+
+  .lists-wrapper {
+    flex: 3;
+    gap: 20px; /* Space between lists */
+    overflow-x: auto; /* Allows horizontal scrolling if the lists exceed the container width */
+  }
+
+  .list {
+    min-width: 220px;
+    max-width: 300px; /* Adjust max width for larger screens */
+  }
+
+  .list-form input {
+    width: auto; /* Auto width on larger screens */
+  }
+}
+
+/* Responsive layout for larger screens (desktops, laptops) */
+@media (min-width: 1024px) {
+  .lists-wrapper {
+    flex-wrap: nowrap; /* Prevent lists from wrapping on larger screens */
+  }
+
+  .list-form {
+    width: auto;
+    margin-left: 20px;
+  }
+}
+
+/* Mobile-specific layout */
+@media (max-width: 767px) {
+  .list-container {
+    flex-direction: column;
+  }
+
+  .lists-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .list {
+    min-width: 100%; /* Take full width on smaller screens */
+  }
+
+  .list-form input {
+    width: 100%;
+    margin: 10px 0;
+  }
+}

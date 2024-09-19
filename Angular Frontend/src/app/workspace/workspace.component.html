@@ -1,0 +1,25 @@
+<div *ngIf="workspace">
+  <div class="workspace">
+    <h1>{{ workspace.name }}</h1>
+    <p>Workspace members ({{ workspace.members.length }} / {{ workspace.maxMembers }})</p>
+ 
+    <div class="member-list">
+      <h3>Workspace members</h3>
+      <ul>
+        <li *ngFor="let member of workspace.members">
+          <strong>{{ member.name }}</strong> 
+          <span>({{ member.email }})</span>
+          <small>Last active: {{ member.lastActive | date }}</small>
+        </li>
+      </ul>
+    </div>
+ 
+    <div class="invite">
+      <h3>Invite members to join</h3>
+      <input type="email" [(ngModel)]="inviteEmail" placeholder="Enter email to invite" />
+      <button (click)="inviteMember()">Invite</button>
+      <button (click)="generateNewInviteLink()">Generate new invite link</button>
+      <p *ngIf="workspace.inviteLink">Invite link: <a href="{{ workspace.inviteLink }}" target="_blank">{{ workspace.inviteLink }}</a></p>
+    </div>
+  </div>
+</div>

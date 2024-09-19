@@ -1,0 +1,112 @@
+/* Main container for cards */
+.card-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  cursor: move;
+  width: 100%;
+}
+
+/* Card form */
+.card-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card-form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  flex-grow: 1;
+}
+
+.card-form button {
+  padding: 10px 20px;
+  background-color: var(--ds-background-brand-bold, #0c66e4);
+  box-shadow: none;
+  color: var(--ds-text-inverse, #ffffff);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.card-form button:hover {
+  background-color: #c82333;
+}
+
+/* Card styles */
+.card {
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.3s;
+}
+
+.card p {
+  margin: 0;
+}
+
+/* Style when dragging */
+.cdk-drag-preview {
+  background-color: #e0f7fa; /* Light teal */
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0.5;
+}
+
+/* No cards message */
+.no-cards {
+  font-style: italic;
+  color: #888;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .card-container {
+    padding: 10px;
+  }
+
+  .card-form {
+    flex-direction: column;
+  }
+
+  .card-form input {
+    width: 100%;
+  }
+
+  .card-form button {
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card-container {
+    padding: 15px;
+  }
+
+  .card-form {
+    gap: 10px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .card-container {
+    padding: 20px;
+  }
+
+  .card {
+    width: 100%; /* Larger width for desktops */
+  }
+}

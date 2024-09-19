@@ -1,0 +1,23 @@
+<div class="list-container">
+  <!-- Display Lists - Aligned to the Left -->
+  <div class="lists-wrapper" cdkDropList (cdkDropListDropped)="dropList($event)">
+    <div *ngIf="lists.length === 0" class="no-lists">
+      No lists found for this board. Create one to get started!
+    </div>
+    
+    <div *ngFor="let list of lists; let i = index" class="list" cdkDrag>
+      <h3>{{ list.title }}</h3>
+      
+      <!-- Cards inside a list with drag-and-drop functionality -->
+      <div class="card-wrapper" cdkDropList (cdkDropListDropped)="dropCard($event, i)">
+        <app-card [listId]="list._id"></app-card>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create List Form - Aligned to the Right -->
+  <div class="list-form">
+    <input [(ngModel)]="newListTitle" placeholder="List Title" />
+    <button (click)="createList()">Add List</button>
+  </div>
+</div>

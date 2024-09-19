@@ -1,0 +1,74 @@
+/* Ensure the body and html occupy the full height */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif; /* Optional: Set a default font */
+  background: #f093fb;
+  background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
+  background: linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
+}
+
+/* Container fluid with background image */
+.container-fluid {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp');
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  padding: 15px; /* Optional: Add padding to the container */
+}
+
+/* Responsive text */
+.custom-heading {
+  font-size: 2rem; /* Base font size */
+  color: white;
+  font-weight: 400px;
+  margin-bottom: 20px;
+  padding: 0 15px; /* Add padding for small screens */
+}
+
+.custom-button {
+  font-size: 1.2rem; /* Base font size */
+  padding: 10px 20px; /* Add padding for better touch area */
+}
+
+/* Media Queries for Responsiveness */
+@media (min-width: 576px) {
+  .custom-heading {
+      font-size: 2.5rem; /* Slightly larger on small screens */
+  }
+  
+}
+
+@media (min-width: 768px) {
+  .custom-heading {
+      font-size: 2rem; /* Larger on medium screens */
+  }
+
+  .custom-button {
+      font-size: 0.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .custom-heading {
+      font-size: 2.5rem; /* Even larger on large screens */
+  }
+
+  .custom-button {
+      font-size: 0.7rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .custom-heading {
+      font-size: 3rem; /* Largest size on extra-large screens */
+  }
+
+  .custom-button {
+      font-size: 0.9rem;
+  }
+}

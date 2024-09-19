@@ -1,0 +1,17 @@
+<div class="card-container" cdkDropList (cdkDropListDropped)="dropCard($event)">
+  <div *ngIf="cards.length === 0" class="no-cards">
+    No cards found for this list. Create one to get started!
+  </div>
+  
+  <!-- Cards with drag-and-drop functionality -->
+  <div *ngFor="let card of cards; let i = index" class="card" cdkDrag>
+    <app-color-panel (emitColor)="handleColorChange($event)"></app-color-panel>
+    <p style="padding: 10px;" [ngStyle]="{ 'background-color': card.color || selectedColor }">{{ card.title }}</p>
+  </div>
+
+  <!-- Form to create new cards -->
+  <div class="card-form">
+    <input [(ngModel)]="newCardTitle" placeholder="Card Title" />
+    <button (click)="createCard()">Add Card</button>
+  </div>
+</div>

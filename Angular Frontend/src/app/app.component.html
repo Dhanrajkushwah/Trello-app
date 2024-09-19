@@ -1,0 +1,108 @@
+<ng-container *ngIf="isAuthenticated; else box">
+  <mat-sidenav-container class="sidenav-container">
+    <!-- Responsive Sidebar -->
+    <mat-sidenav #sidenav mode="side" class="sidenav" [opened]="isSidenavOpened">
+      <mat-toolbar color="primary">
+        <!-- Close Icon for Small Screens -->
+        <button mat-icon-button (click)="sidenav.close()" class="hide-large">
+          <mat-icon>close</mat-icon>
+        </button>
+        <!-- Logo or Title -->
+        <span>Trello App</span>
+      </mat-toolbar>
+      <mat-nav-list color="primary">
+        <!-- Home Link -->
+        <!-- <a mat-list-item routerLink="/">
+          <mat-icon>home</mat-icon>&nbsp;
+          <span>Home</span>
+        </a> -->
+        <!-- Board Link -->
+        <a mat-list-item [routerLink]="['/board']">
+          <mat-icon>assessment</mat-icon>&nbsp;
+          <span>Board</span>
+        </a>
+        <!-- Members Link -->
+        <a mat-list-item routerLink="/members">
+          <mat-icon>people</mat-icon>&nbsp;
+          <span>Members</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mat-icon>add</mat-icon>
+        </a>
+        <!-- Workspace Settings Link -->
+        <a mat-list-item routerLink="/settings">
+          <mat-icon>settings</mat-icon>&nbsp;
+          <span>Workspace Settings</span>
+        </a>
+        <!-- Table Link -->
+        <a mat-list-item routerLink="/table">
+          <mat-icon>list_alt</mat-icon>&nbsp;
+          <span>Table</span>
+        </a>
+        <!-- Calendar Link -->
+        <a mat-list-item routerLink="/calendar">
+          <mat-icon>today</mat-icon>&nbsp;
+          <span>Calendar</span>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <!-- Main Content Area -->
+    <mat-sidenav-content>
+      <!-- Toolbar -->
+      <mat-toolbar color="primary">
+        <!-- Menu Icon for Small Screens -->
+        <button mat-icon-button (click)="sidenav.toggle()" class="hide-large">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <!-- Page Title -->
+        <span class="toolbar-title">Project Management</span>
+        <!-- Spacer to push elements to the right -->
+        <span class="spacer"></span>
+        <!-- Search Input -->
+        <button mat-icon-button matSuffix>
+          <mat-icon>search</mat-icon>
+        </button>
+        <!-- Notification Icon -->
+        <button mat-icon-button>
+          <mat-icon>notifications</mat-icon>
+        </button>
+        <!-- Information Icon -->
+        <button mat-icon-button>
+          <mat-icon>info</mat-icon>
+        </button>
+        <!-- Account Icon with Dropdown Menu -->
+        <button mat-icon-button [matMenuTriggerFor]="accountMenu">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+        <!-- Dropdown Menu -->
+        <mat-menu #accountMenu="matMenu">
+          <button mat-menu-item (click)="onSignIn()">
+            <mat-icon>login</mat-icon>
+            <span>Sign In</span>
+          </button>
+          <button mat-menu-item (click)="onSignUp()">
+            <mat-icon>person_add</mat-icon>
+            <span>Sign Up</span>
+          </button>
+          <button mat-menu-item (click)="onLogout()">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </button>
+          <button mat-menu-item (click)="onSettings()">
+            <mat-icon>settings</mat-icon>
+            <span>Settings</span>
+          </button>
+          <button mat-menu-item (click)="onThemes()">
+            <mat-icon>palette</mat-icon>
+            <span>Themes</span>
+          </button>
+        </mat-menu>
+      </mat-toolbar>
+      <!-- Main Content -->
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>
+
+<ng-template #box>
+  <router-outlet></router-outlet>
+</ng-template>

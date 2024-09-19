@@ -1,0 +1,119 @@
+
+  <!-- Section: Design Block -->
+  <div class="signup-container">
+    <div class="card signup-card">
+      <div class="card-body">
+        <form [formGroup]="signinForm" (ngSubmit)="onSignin()">
+        <img
+          src="https://1000logos.net/wp-content/uploads/2021/05/Trello-logo.png"
+          alt="logo"
+          width="40%"
+        />
+        <p>Sign In to continue</p>
+  
+        <div class="mb-3">
+          <input
+          type="email" class="form-control" id="email" formControlName="email" name="email" [ngClass]="{'is-invalid': signinForm.controls['email'].errors && ckDep }"
+            placeholder="Enter your email" />
+            <small *ngIf="signinForm.controls['email'].errors && ckDep" class="text-danger">Enter Your Email</small>
+        </div>
+  
+        <div class="mb-3 position-relative">
+          <input
+          [type]="showPassword ? 'text' : 'password'"
+          class="form-control"
+          id="password"
+          formControlName="password"
+          name="password"
+          [ngClass]="{ 'is-invalid': signinForm.controls['password'].errors && ckDep }"
+            placeholder="Enter your password"/>
+          <i
+            class="fa"
+            [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+            (click)="togglePasswordVisibility()"
+            style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;"
+          ></i>
+          <small
+                            *ngIf="signinForm.controls['password'].errors && ckDep"
+                            class="text-danger"
+                            >Enter Your Password</small
+                          >
+        </div>
+  
+        <div>
+          <button
+            class="btn btn-primary w-100 mt-3 p-2"
+            type="submit"
+          >
+            Continue
+          </button>
+        </div>
+  
+<p class="mt-3">Or continue with: </p>
+<div class="signup-ways">
+  <div data-i18n-or="or" data-i18n-continue="Or continue with:" class="google-login social-login css-1n7nx3r" data-testid="social-login-wrapper">
+    <div class="css-1vymulm">
+      <button id="google-auth-button" class="css-1bthe7p" tabindex="0" type="button">
+        <span class="css-1ti50tg">
+          <img src="https://id-frontend.prod-east.frontend.public.atl-paas.net/assets/google-logo.5867462c.svg" alt="Google">
+        </span>
+        <span class="css-178ag6o">Google</span>
+      </button>
+    </div>
+      <div class="css-1vymulm">
+        <button id="microsoft-auth-button" class="css-1bthe7p" tabindex="0" type="button">
+          <span class="css-1ti50tg">
+            <img src="https://id-frontend.prod-east.frontend.public.atl-paas.net/assets/microsoft-logo.c73d8dca.svg" alt="Microsoft">
+          </span>
+          <span class="css-178ag6o">Microsoft</span>
+        </button>
+      </div>
+      <div class="css-1vymulm">
+        <button id="apple-auth-button" class="css-1bthe7p" tabindex="0" type="button">
+          <span class="css-1ti50tg">
+            <img src="https://id-frontend.prod-east.frontend.public.atl-paas.net/assets/apple-logo.54e0d711.svg" alt="Apple">
+          </span>
+          <span class="css-178ag6o">Apple</span>
+        </button>
+      </div>
+      <div class="css-1vymulm">
+        <button id="slack-auth-button" class="css-1bthe7p" tabindex="0" type="button">
+          <span class="css-1ti50tg">
+            <img src="https://id-frontend.prod-east.frontend.public.atl-paas.net/assets/slack-logo.5d730c10.svg" alt="Slack">
+          </span>
+          <span class="css-178ag6o">Slack</span>
+        </button>
+      </div>
+  </div>
+</div>
+
+<!-- Existing code -->
+
+  
+        <div class="text-center mt-2">
+          <a routerLink="/signupform" class="text-decoration-none">
+            Can't log in? Create an account
+          </a>
+        </div>
+  
+        <hr />
+  
+        <div>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Atlassian-logo.svg/2560px-Atlassian-logo.svg.png"
+            alt="logo"
+            width="50%"
+            style="margin-left: 25%;"
+          />
+          <p>
+            <small>
+              One account for Trello, Jira, Confluence, and <span style="color: blue;">more.</span> <br />
+              This site is protected by reCAPTCHA and the Google <span style="color: blue;">Privacy Policy</span> and <span style="color: blue;">Terms of Service apply.</span>
+            </small>
+          </p>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  

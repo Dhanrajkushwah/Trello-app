@@ -1,0 +1,54 @@
+.table-container {
+    margin: 20px auto;
+    max-width: 1000px;
+    background-color: #f4f5f7;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead {
+    background-color: #0079bf;
+    color: white;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  tr:hover {
+    background-color: #e1ecf4;
+  }
+  
+  .label {
+    background-color: #ffcc00;
+    color: #333;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 4px;
+  }
+  
+  .member {
+    background-color: #0079bf;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 50%;
+    margin-right: 4px;
+    display: inline-block;
+  }
+  
+  td {
+    vertical-align: top;
+  }
+  
+  tbody td:last-child {
+    white-space: nowrap;
+  }
+  

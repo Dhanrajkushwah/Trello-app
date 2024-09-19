@@ -1,0 +1,14 @@
+<div class="board-container">
+  <h2>Boards</h2>
+  <div class="board-form">
+    <input [(ngModel)]="newBoardTitle" placeholder="Board Title" />
+    <button (click)="createBoard()">Create Board</button>
+  </div>
+  <div *ngIf="boards.length === 0" class="no-boards">
+    No boards found. Create one to get started!
+  </div>
+  <div *ngFor="let board of boards" class="board">
+    <h3>{{ board.title }}</h3>
+    <app-list [boardId]="board._id"></app-list>
+  </div>
+</div>
