@@ -1,7 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
-import { Workspace } from '../Models/workspace.model';
-import { Member } from '../Models/member.model';
+
+export interface Member {
+  name: string;
+  email: string;
+  lastActive: Date;
+}
+
+export interface Workspace {
+  name: string;
+  members: Member[];
+  maxMembers: number;
+  inviteLink?: string;
+}
 
 @Component({
   selector: 'app-workspace',
@@ -9,54 +20,41 @@ import { Member } from '../Models/member.model';
   styleUrls: ['./workspace.component.css']
 })
 export class WorkspaceComponent implements OnInit {
-  workspace: Workspace = {
-    id: '',
-    name: '',
-    members: [],
-    inviteLink: '',
-    maxMembers: 0
-  };
+ 
+  // Workspace object
+  workspace: Workspace | null = null;
+
+  // Placeholder for new invite email
   inviteEmail: string = '';
 
-  constructor(private workspaceService: LoginService) {}
+  constructor() { }
 
-  ngOnInit() {
-    this.workspaceService.getWorkspaceById('1').subscribe({
-      next: (data: Workspace) => {
-        this.workspace = data;
-        console.log('Workspace loaded:', this.workspace); // Check workspace details
-      },
-      error: (err) => console.error('Error fetching workspace data', err)
-    });
+  ngOnInit(): void {
+    // Simulate fetching workspace data from a service or API
+    this.workspace = {
+      name: 'Development Team',
+      members: [
+        { name: 'John Doe', email: 'john@example.com', lastActive: new Date('2024-09-15') },
+        { name: 'Jane Smith', email: 'jane@example.com', lastActive: new Date('2024-09-10') }
+      ],
+      maxMembers: 10,
+      inviteLink: 'https://example.com/invite/abc123' // This can be dynamically generated later
+    };
   }
 
-  // Invite a new member by email
-  inviteMember() {
+  // Function to handle member invitation
+  inviteMember(): void {
     if (this.inviteEmail) {
-      console.log('Workspace ID:', this.workspace.id); // Check if the ID is available
-      const newMember = {
-        id: (this.workspace.members.length + 1).toString(),
-        name: this.inviteEmail.split('@')[0],
-        email: this.inviteEmail,
-        role: 'Member',
-        lastActive: new Date()
-      };
-      this.workspaceService.addMember(this.workspace.id, newMember).subscribe({
-        next: () => this.inviteEmail = '',
-        error: (err) => console.error('Error inviting member', err)
-      });
+      console.log(`Inviting ${this.inviteEmail} to workspace`);
+      // Implement actual invite logic, like calling a service
+      this.inviteEmail = ''; // Clear input after invite
+    } else {
+      alert('Please enter an email address to invite.');
     }
   }
-  
 
-  // Generate a new invite link
-  generateNewInviteLink() {
-    this.workspaceService.generateInviteLink(this.workspace.id).subscribe({
-      next: (response: { inviteLink: string }) => {
-        this.workspace.inviteLink = response.inviteLink;
-        alert(`New invite link generated: ${this.workspace.inviteLink}`);
-      },
-      error: (err) => console.error('Error generating invite link', err)
-    });
+  // Function to generate a new invite link
+  generateNewInviteLink(): void {
+    this.workspace!.inviteLink = `https://example.com/invite/${Math.random().toString(36).substr(2, 9)}`;
   }
 }

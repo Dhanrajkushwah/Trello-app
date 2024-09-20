@@ -1,1 +1,28 @@
-<p>calendar works!</p>
+<div class="calendar-container">
+    <div class="calendar-header">
+      <button (click)="previousMonth()">&lt;</button>
+      <span>{{ currentMonth }} {{ currentYear }}</span>
+      <button (click)="nextMonth()">&gt;</button>
+    </div>
+  
+    <div class="calendar-grid">
+      <div class="day-name">Sun</div>
+      <div class="day-name">Mon</div>
+      <div class="day-name">Tue</div>
+      <div class="day-name">Wed</div>
+      <div class="day-name">Thu</div>
+      <div class="day-name">Fri</div>
+      <div class="day-name">Sat</div>
+  
+      <div *ngFor="let day of days" class="calendar-day" [class.empty]="day === 0">
+        <div *ngIf="day !== 0">
+          {{ day }}
+          <!-- Highlight if the day has an event -->
+          <div *ngIf="hasEvent(day)" class="event">
+            <span>{{ hasEvent(day)?.title }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

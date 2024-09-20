@@ -5,8 +5,8 @@
 export const environment = {
   production: true,
   ///// Development Url //////
-   //_api: 'http://localhost:5000'
-   _api:'https://trello-app-nu-opal.vercel.app'
+   _api: 'http://localhost:5000'
+   //_api:'https://trello-app-nu-opal.vercel.app'
 };
 
 /*

@@ -6,6 +6,7 @@ interface Card {
   members: string[];
   dueDate: Date;
 }
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',

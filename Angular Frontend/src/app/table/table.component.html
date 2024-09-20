@@ -1,27 +1,26 @@
 <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <th>Card</th>
-          <th>List</th>
-          <th>Labels</th>
-          <th>Members</th>
-          <th>Due Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let card of cards">
-          <td>{{ card.title }}</td>
-          <td>{{ card.listName }}</td>
-          <td>
-            <span *ngFor="let label of card.labels" class="label">{{ label }}</span>
-          </td>
-          <td>
-            <span *ngFor="let member of card.members" class="member">{{ member }}</span>
-          </td>
-          <td>{{ card.dueDate | date: 'shortDate' }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
+  <table>
+    <thead>
+      <tr>
+        <th>Card</th>
+        <th>List</th>
+        <th>Labels</th>
+        <th>Members</th>
+        <th>Due Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let card of cards">
+        <td>{{ card.title }}</td>
+        <td>{{ card.listName }}</td>
+        <td>
+          <span *ngFor="let label of card.labels" class="label">{{ label }}</span>
+        </td>
+        <td>
+          <span *ngFor="let member of card.members" class="member">{{ member }}</span>
+        </td>
+        <td>{{ card.dueDate | date: 'shortDate' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

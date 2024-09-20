@@ -1,56 +1,64 @@
 .calendar-container {
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-  }
-  
-  .calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px;
-    background-color: #f8f8f8;
-  }
-  
-  .calendar-body {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .calendar-weekdays {
-    display: flex;
-    background-color: #f1f1f1;
-    padding: 8px;
-  }
-  
-  .weekday {
-    flex: 1;
-    text-align: center;
-    font-weight: bold;
-  }
-  
-  .calendar-days {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 8px;
-  }
-  
-  .calendar-days > div {
-    width: calc(100% / 7);
-    text-align: center;
-    padding: 8px;
-    box-sizing: border-box;
-  }
-  
-  .current-day {
-    background-color: #007bff;
-    color: white;
-    border-radius: 50%;
-  }
-  
-  .other-month {
-    color: #aaa;
-  }
-  
+  max-width: 100%;
+  margin: 20px 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.calendar-header button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.calendar-header button:hover {
+  background-color: #0056b3;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 5px;
+}
+
+.day-name {
+  text-align: center;
+  font-weight: bold;
+  padding: 10px 0;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.calendar-day {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #fafafa;
+  border-radius: 5px;
+  border: 1px solid #eaeaea;
+}
+
+.calendar-day.empty {
+  background-color: transparent;
+  border: none;
+}
+
+.event {
+  background-color: #ffcc00;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  text-align: center;
+}
